@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FireBaseTest</string>
+    <string name="content_items_loading_error">Unable to load content items.\n\nPlease check your internet connection.</string>
+    <string name="content_page_loading_error">Unable to load content page.\n\nPlease check your internet connection.</string>
+
+    <string name="sign_in_error_message">Authentication failed.\n\nPlease connect to the internet and try again.</string>
+    <string name="sign_in_button_continue">Continue</string>
+</resources>

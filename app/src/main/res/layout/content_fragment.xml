@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.ironflowers.firebasetest.ui.content.vm.ContentViewModel"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fillViewport="true">
+
+        <LinearLayout
+            style="@style/RootViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imageCover"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="40dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:storageSrc="@{item.imageReference}"/>
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@{item.contentDescription}"
+                android:visibility="@{item.contentDescription == null ? View.GONE: View.VISIBLE}"/>
+
+            <TextView
+                android:id="@+id/textLoadingError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/content_page_loading_error"
+                android:visibility="@{item.showErrorMessage ? View.VISIBLE: View.GONE}"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{item.showLoadingIndicator ? View.VISIBLE: View.GONE}"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

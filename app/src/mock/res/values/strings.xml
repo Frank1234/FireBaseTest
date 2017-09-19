@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="sign_in_error_message">Access Denied.\n\nUnless this is a test, you are not supposed to launch the app with the mock build variant.</string>
+
+</resources>

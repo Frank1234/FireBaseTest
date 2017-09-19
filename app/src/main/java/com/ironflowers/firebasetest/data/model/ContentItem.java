@@ -49,6 +49,9 @@ public class ContentItem {
         this.description = description;
     }
 
+    /**
+     * Url of the image on the storage, relative to the storage content root.
+     */
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }

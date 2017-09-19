@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class HomeItemViewModelFactory {
 
-    StorageReference rootStorageReference;
+    private StorageReference rootStorageReference;
 
     public HomeItemViewModelFactory(StorageReference rootStorageReference) {
         this.rootStorageReference = rootStorageReference;

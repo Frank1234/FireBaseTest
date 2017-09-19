@@ -16,8 +16,7 @@ import dagger.android.ContributesAndroidInjector;
 import static com.ironflowers.firebasetest.di.ApplicationModule.NAME_ROOT_STORAGE;
 
 /**
- * This is a Dagger module. We use this to pass in the View dependency to the
- * {@link HomePresenter}.
+ * A Dagger module with View dependency to the {@link HomePresenter}.
  */
 @Module
 public abstract class HomeModule {

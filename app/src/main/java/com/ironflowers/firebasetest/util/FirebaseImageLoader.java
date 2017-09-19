@@ -22,10 +22,8 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 
 /**
- * Frank copied this from:
- * https://raw.githubusercontent.com/firebase/FirebaseUI-Android/df48471abe119d2d6aec721fccbf2f5d227d470d/storage/src/main/java/com/firebase/ui/storage/images/FirebaseImageLoader.java
- * <p>
- * Because it's not yet merged into the Firebase-UI lib. When it is, we can use the library.
+ * Copied from: https://raw.githubusercontent.com/firebase/FirebaseUI-Android/df48471abe119d2d6aec721fccbf2f5d227d470d/storage/src/main/java/com/firebase/ui/storage/images/FirebaseImageLoader.java
+ * This class is not yet merged into the Firebase-UI lib. When it is, we can use the Firebase-UI library.
  * <p>
  * ModelLoader implementation to download images from FirebaseStorage with Glide.
  * <p>

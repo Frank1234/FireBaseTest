@@ -15,17 +15,20 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Presents a list of {@link ContentItem}s on the screen.
+ */
 public class HomePresenter implements HomeContract.Presenter {
 
     // TODO maybe add a ViewModel for the main screen (progress and error text) as well.
 
     @Nullable
-    HomeContract.View view;
+    private HomeContract.View view;
 
-    ContentRepository contentRepository;
-    Disposable getContentItemsDisposable;
-    SchedulerProvider schedulerProvider;
-    HomeItemViewModelFactory homeItemViewModelFactory;
+    private ContentRepository contentRepository;
+    private Disposable getContentItemsDisposable;
+    private SchedulerProvider schedulerProvider;
+    private HomeItemViewModelFactory homeItemViewModelFactory;
 
     @Inject
     HomePresenter(ContentRepository contentRepository, SchedulerProvider schedulerProvider,

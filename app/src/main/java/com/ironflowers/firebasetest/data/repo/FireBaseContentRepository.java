@@ -3,7 +3,6 @@ package com.ironflowers.firebasetest.data.repo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ironflowers.firebasetest.data.model.ContentItem;
 
@@ -23,13 +22,11 @@ import timber.log.Timber;
 @Singleton
 public class FireBaseContentRepository implements ContentRepository {
 
-    FirebaseDatabase database;
-    DatabaseReference contentDbRef;
+    private DatabaseReference contentDatabaseReference;
 
     @Inject
-    FireBaseContentRepository(FirebaseDatabase database, @Named(DB_PATH_CONTENT) DatabaseReference contentDbRef) {
-        this.database = database;
-        this.contentDbRef = contentDbRef;
+    FireBaseContentRepository(@Named(DB_PATH_CONTENT) DatabaseReference contentDatabaseReference) {
+        this.contentDatabaseReference = contentDatabaseReference;
     }
 
     @Override
@@ -37,7 +34,7 @@ public class FireBaseContentRepository implements ContentRepository {
 
         return Single.create(singleSubscriber ->
 
-                contentDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                contentDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -45,7 +42,7 @@ public class FireBaseContentRepository implements ContentRepository {
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                             contentItems.add(postSnapshot.getValue(ContentItem.class));
                         }
-                        contentDbRef.removeEventListener(this);
+                        contentDatabaseReference.removeEventListener(this);
 
                         singleSubscriber.onSuccess(contentItems);
                     }
@@ -54,7 +51,7 @@ public class FireBaseContentRepository implements ContentRepository {
                     public void onCancelled(DatabaseError databaseError) {
 
                         Timber.w("onCancelled " + databaseError);
-                        contentDbRef.removeEventListener(this);
+                        contentDatabaseReference.removeEventListener(this);
 
                         if (!singleSubscriber.isDisposed()) {
                             singleSubscriber.onError(databaseError.toException());
@@ -68,10 +65,10 @@ public class FireBaseContentRepository implements ContentRepository {
 
         return Single.create(singleSubscriber ->
 
-                contentDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                contentDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        contentDbRef.removeEventListener(this);
+                        contentDatabaseReference.removeEventListener(this);
                         singleSubscriber.onSuccess(dataSnapshot.child(
                                 Integer.toString(id)).getValue(ContentItem.class));
                     }
@@ -80,7 +77,7 @@ public class FireBaseContentRepository implements ContentRepository {
                     public void onCancelled(DatabaseError databaseError) {
 
                         Timber.w("onCancelled " + databaseError);
-                        contentDbRef.removeEventListener(this);
+                        contentDatabaseReference.removeEventListener(this);
 
                         if (!singleSubscriber.isDisposed()) {
                             singleSubscriber.onError(databaseError.toException());

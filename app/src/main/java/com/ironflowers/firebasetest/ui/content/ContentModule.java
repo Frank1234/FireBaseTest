@@ -10,14 +10,13 @@ import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
 
 /**
- * This is a Dagger module. We use this to pass in the View dependency to the
- * {@link ContentPresenter}.
+ * A Dagger module with View dependency to the {@link ContentPresenter}.
  */
 @Module
 public abstract class ContentModule {
 
     @FragmentScoped
-    @ContributesAndroidInjector // TODO Low prio: maybe remove FragmentScope, we hardly use it
+    @ContributesAndroidInjector
     abstract ContentFragment contentFragment();
 
     @Binds

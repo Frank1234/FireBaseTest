@@ -20,7 +20,7 @@ import java.util.concurrent.Executor;
  */
 public class FakeAuthTask extends Task<AuthResult> {
 
-    private final int fakedDelayMs = 200;
+    private final int fakedDelayMs = 10;
     boolean fakeSuccess;
 
     public FakeAuthTask(boolean fakeSuccess) {

@@ -22,18 +22,18 @@ import static com.ironflowers.firebasetest.di.ApplicationModule.NAME_ROOT_STORAG
 public class ContentPresenter implements ContentContract.Presenter {
 
     @Nullable
-    ContentContract.View view;
+    private ContentContract.View view;
 
-    ContentRepository contentRepository;
-    Disposable getContentItemsDisposable;
-    SchedulerProvider schedulerProvider;
-    ContentViewModel viewModel;
-    StorageReference rootStorageReference;
+    private ContentRepository contentRepository;
+    private Disposable getContentItemsDisposable;
+    private SchedulerProvider schedulerProvider;
+    private ContentViewModel viewModel;
+    private StorageReference rootStorageReference;
 
     /**
      * Content item id to show on this page.
      */
-    int contentItemId;
+    private int contentItemId;
 
     @Inject
     ContentPresenter(ContentRepository contentRepository, SchedulerProvider schedulerProvider,

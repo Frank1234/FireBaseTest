@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.ironflowers.firebasetest.R;
+import com.ironflowers.firebasetest.data.model.ContentItem;
 import com.ironflowers.firebasetest.util.ActivityUtils;
 
 import javax.inject.Inject;
@@ -12,6 +13,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 
+/**
+ * Displays the home screen of the app, with a fragment containing a list of {@link ContentItem}s.
+ */
 public class HomeActivity extends DaggerAppCompatActivity {
 
     @BindView(R.id.toolbar)

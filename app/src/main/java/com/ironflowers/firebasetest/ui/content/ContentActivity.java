@@ -12,6 +12,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 
+/**
+ * Displays one page of content in a fragment.
+ */
 public class ContentActivity extends DaggerAppCompatActivity {
 
     public static final String EXTRA_CONTENT_ITEM_ID = "EXTRA_CONTENT_ITEM_ID",

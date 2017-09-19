@@ -23,7 +23,7 @@ public class SignInActivity extends DaggerAppCompatActivity implements SignInCon
     @Inject
     SignInContract.Presenter presenter;
 
-    SignInActivityBinding binding;
+    private SignInActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import timber.log.Timber;
 
 /**
- * Shows the Splash Screen and signs in the user anonymously. Continues into the app after
+ * Presents the Splash Screen and signs in the user anonymously. Continues into the app after
  * the user is signed in.
  */
 public class SignInPresenter implements SignInContract.Presenter {

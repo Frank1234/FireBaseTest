@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ironflowers.firebasetest.R;
+import com.ironflowers.firebasetest.data.model.ContentItem;
 import com.ironflowers.firebasetest.di.ActivityScoped;
 import com.ironflowers.firebasetest.ui.content.ContentActivity;
 import com.ironflowers.firebasetest.ui.home.vm.HomeItemViewModel;
@@ -25,6 +26,9 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import dagger.android.support.DaggerFragment;
 
+/**
+ * A fragment displaying a list of {@link ContentItem}s.
+ */
 @ActivityScoped
 public class HomeFragment extends DaggerFragment implements HomeContract.View {
 
@@ -39,7 +43,7 @@ public class HomeFragment extends DaggerFragment implements HomeContract.View {
     HomeContract.Presenter presenter;
 
     private Unbinder butterKnifeUnBinder;
-    public HomeAdapter adapter;
+    private HomeAdapter adapter;
 
     @Inject
     public HomeFragment() {

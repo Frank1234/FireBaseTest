@@ -16,6 +16,9 @@ import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
+/**
+ * Displays one page of content.
+ */
 @ActivityScoped
 public class ContentFragment extends DaggerFragment implements ContentContract.View {
 

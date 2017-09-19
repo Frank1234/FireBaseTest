@@ -88,9 +88,9 @@ public class SignInScreenTest {
         createActivity();
 
         // error message should be showing:
+        Espresso.onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())));
         Espresso.onView(withId(R.id.textMessage)).check(matches(isDisplayed()));
         Espresso.onView(withId(R.id.buttonContinue)).check(matches(isDisplayed()));
-        Espresso.onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())));
 
         // double check that the home screen is not shown:
         Espresso.onView(withId(R.id.recyclerContent)).check(doesNotExist());

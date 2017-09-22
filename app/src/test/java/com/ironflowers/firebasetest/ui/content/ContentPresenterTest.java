@@ -76,7 +76,7 @@ public class ContentPresenterTest {
         assertFalse(viewModel.isShowLoadingIndicator());
         assertFalse(viewModel.isShowErrorMessage());
         assertNull(viewModel.getContentDescription());
-        assertNull(viewModel.getImageReference());
+        assertNull(viewModel.getImageUrl());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class ContentPresenterTest {
         assertFalse(viewModel.isShowLoadingIndicator());
         assertTrue(viewModel.isShowErrorMessage());
         assertNull(viewModel.getContentDescription());
-        assertNull(viewModel.getImageReference());
+        assertNull(viewModel.getImageUrl());
     }
 
     @Test

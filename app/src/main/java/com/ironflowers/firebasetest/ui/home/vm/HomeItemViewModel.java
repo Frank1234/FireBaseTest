@@ -3,7 +3,6 @@ package com.ironflowers.firebasetest.ui.home.vm;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.google.firebase.storage.StorageReference;
 import com.ironflowers.firebasetest.BR;
 import com.ironflowers.firebasetest.data.model.ContentItem;
 
@@ -14,7 +13,7 @@ public class HomeItemViewModel extends BaseObservable {
 
     private int itemId;
     private String title;
-    private StorageReference imageReference;
+    private String imageUrl;
 
     public HomeItemViewModel(int itemId) {
         this.itemId = itemId;
@@ -36,12 +35,12 @@ public class HomeItemViewModel extends BaseObservable {
     }
 
     @Bindable
-    public StorageReference getImageReference() {
-        return imageReference;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageReference(StorageReference imageReference) {
-        this.imageReference = imageReference;
-        notifyPropertyChanged(BR.imageReference);
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        notifyPropertyChanged(BR.imageUrl);
     }
 }

@@ -30,7 +30,7 @@
                 android:layout_margin="40dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                app:storageSrc="@{item.imageReference}"/>
+                app:glideSrc="@{item.imageUrl}"/>
 
             <TextView
                 android:id="@+id/textDescription"

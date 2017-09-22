@@ -1,6 +1,5 @@
 package com.ironflowers.firebasetest.ui.home;
 
-import com.google.firebase.storage.StorageReference;
 import com.ironflowers.firebasetest.data.repo.FireBaseContentRepository;
 import com.ironflowers.firebasetest.ui.home.vm.HomeItemViewModel;
 import com.ironflowers.firebasetest.ui.home.vm.HomeItemViewModelFactory;
@@ -8,7 +7,6 @@ import com.ironflowers.firebasetest.utils.rx.TestSchedulerProvider;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -19,6 +17,7 @@ import io.reactivex.schedulers.TestScheduler;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -32,8 +31,6 @@ public class HomePresenterTest {
     private FireBaseContentRepository contentRepository;
     @Mock
     private HomeContract.View homeView;
-    @Mock
-    private StorageReference storageReference;
 
     private HomePresenter homePresenter;
     private TestScheduler testScheduler;
@@ -45,7 +42,7 @@ public class HomePresenterTest {
         testScheduler = new TestScheduler();
         homePresenter = new HomePresenter(contentRepository,
                 new TestSchedulerProvider(testScheduler),
-                new HomeItemViewModelFactory(storageReference));
+                new HomeItemViewModelFactory());
 
         // mock the Single:
         when(contentRepository.getContentItems()).thenReturn(Single.just(Collections.emptyList()));
@@ -69,7 +66,7 @@ public class HomePresenterTest {
 
         // Progress indicator is hidden and correct data is passed on to the view
         verify(homeView).showProgressIndicator(false);
-        verify(homeView).setContentItems(Matchers.anyListOf(HomeItemViewModel.class));
+        verify(homeView).setContentItems(anyList());
     }
 
     @Test
@@ -84,7 +81,7 @@ public class HomePresenterTest {
 
         verify(homeView).showProgressIndicator(false);
         verify(homeView).showLoadingError(true);
-        verify(homeView, never()).setContentItems(Matchers.anyListOf(HomeItemViewModel.class));
+        verify(homeView, never()).setContentItems(anyList());
     }
 
     @Test

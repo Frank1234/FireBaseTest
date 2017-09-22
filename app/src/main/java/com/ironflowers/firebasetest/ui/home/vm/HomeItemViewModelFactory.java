@@ -1,6 +1,5 @@
 package com.ironflowers.firebasetest.ui.home.vm;
 
-import com.google.firebase.storage.StorageReference;
 import com.ironflowers.firebasetest.data.model.ContentItem;
 
 import java.util.ArrayList;
@@ -10,12 +9,6 @@ import java.util.List;
  * Creates ViewModels for one {@link ContentItem}s.
  */
 public class HomeItemViewModelFactory {
-
-    private StorageReference rootStorageReference;
-
-    public HomeItemViewModelFactory(StorageReference rootStorageReference) {
-        this.rootStorageReference = rootStorageReference;
-    }
 
     /**
      * Creates viewModel objects for the given {@link ContentItem}s.
@@ -40,7 +33,7 @@ public class HomeItemViewModelFactory {
 
         viewModel.setTitle(item.getTitle());
         if (item.getImageUrl() != null) {
-            viewModel.setImageReference(rootStorageReference.child(item.getImageUrl()));
+            viewModel.setImageUrl(item.getImageUrl());
         }
 
         return viewModel;

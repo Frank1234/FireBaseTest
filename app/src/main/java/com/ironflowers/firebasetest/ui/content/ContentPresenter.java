@@ -28,7 +28,6 @@ public class ContentPresenter implements ContentContract.Presenter {
     private Disposable getContentItemsDisposable;
     private SchedulerProvider schedulerProvider;
     private ContentViewModel viewModel;
-    private StorageReference rootStorageReference;
 
     /**
      * Content item id to show on this page.
@@ -37,13 +36,11 @@ public class ContentPresenter implements ContentContract.Presenter {
 
     @Inject
     ContentPresenter(ContentRepository contentRepository, SchedulerProvider schedulerProvider,
-                     @Named(NAME_ROOT_STORAGE) StorageReference rootStorageReference,
                      int contentItemId, ContentViewModel viewModel) {
 
         this.contentRepository = contentRepository;
         this.schedulerProvider = schedulerProvider;
         this.viewModel = viewModel;
-        this.rootStorageReference = rootStorageReference;
         this.contentItemId = contentItemId;
     }
 
@@ -99,7 +96,7 @@ public class ContentPresenter implements ContentContract.Presenter {
         viewModel.setContentDescription(item.getDescription());
 
         if (item.getImageUrl() != null) {
-            viewModel.setImageReference(rootStorageReference.child(item.getImageUrl()));
+            viewModel.setImageUrl(item.getImageUrl());
         }
     }
 

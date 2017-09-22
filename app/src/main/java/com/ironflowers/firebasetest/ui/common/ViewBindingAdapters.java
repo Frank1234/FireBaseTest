@@ -3,8 +3,6 @@ package com.ironflowers.firebasetest.ui.common;
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
-import com.google.firebase.storage.StorageReference;
-
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
@@ -12,15 +10,15 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  */
 public class ViewBindingAdapters {
 
-    @BindingAdapter({"storageSrc"})
-    public static void setImageViewResource(ImageView imageView, StorageReference storageImageUrl) {
+    @BindingAdapter({"glideSrc"})
+    public static void setImageViewResource(ImageView imageView, String publicImageUrl) {
 
-        if (storageImageUrl == null) {
+        if (publicImageUrl == null) {
             return;
         }
 
         GlideApp.with(imageView.getContext())
-                .load(storageImageUrl)
+                .load(publicImageUrl)
                 .transition(withCrossFade())
                 .into(imageView);
     }

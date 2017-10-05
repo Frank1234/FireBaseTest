@@ -4,7 +4,7 @@ Try-out project using MVPVM, Dagger2-Android, Data Binding and RXJava, with a la
 
 The architecture used is MVPVM (MVP + ViewModels). Views and ViewModels are dumb in this setup.
 
-Tests are run by [buddybuild CI](https://www.buddybuild.com/)
+CI: [buddybuild CI](https://www.buddybuild.com/).
 
 ## Open items
 

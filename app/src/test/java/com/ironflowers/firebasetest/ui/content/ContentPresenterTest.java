@@ -49,7 +49,7 @@ public class ContentPresenterTest {
         testScheduler = new TestScheduler();
         contentPresenter = new ContentPresenter(contentRepository,
                 new TestSchedulerProvider(testScheduler),
-                storageReference, itemId, viewModel);
+                itemId, viewModel);
 
         // mock the Single:
         when(contentRepository.getContentItem(itemId)).thenReturn(Single.just(contentItem));

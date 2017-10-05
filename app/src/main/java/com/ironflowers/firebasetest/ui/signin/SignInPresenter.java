@@ -30,7 +30,11 @@ public class SignInPresenter implements SignInContract.Presenter {
     }
 
     @Override
-    public void startSignInFlow() {
+    public void onContinueButtonClicked() {
+        startSignInFlow();
+    }
+
+    private void startSignInFlow() {
 
         if (view != null) {
             view.bind(viewModel);

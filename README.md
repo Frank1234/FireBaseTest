@@ -4,11 +4,11 @@ Try-out project using MVPVM, Dagger2-Android, Data Binding and RXJava, with a la
 
 The architecture used is MVPVM (MVP + ViewModels). Views and ViewModels are dumb in this setup.
 
-## List of open items
+Tests are run by [buddybuild CI](https://www.buddybuild.com/)
 
-- Add CI
+## Open items
+
 - The current use of IdlingResources for Espresso requires some test code in my production builds. Check if we can switch to github.com/square/RxIdler
-- There are a few TODOs left in the code.
 
 ## Author
 

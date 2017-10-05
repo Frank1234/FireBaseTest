@@ -25,6 +25,6 @@ public interface SignInContract {
 
     interface Presenter extends BasePresenter<View> {
 
-        void startSignInFlow();
+        void onContinueButtonClicked();
     }
 }

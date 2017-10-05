@@ -67,6 +67,6 @@ public class SignInActivity extends DaggerAppCompatActivity implements SignInCon
 
     @OnClick(R.id.buttonContinue)
     public void onContinueButtonClicked() {
-        presenter.startSignInFlow();
+        presenter.onContinueButtonClicked();
     }
 }

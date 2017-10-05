@@ -52,7 +52,7 @@ public class SignInPresenterTest {
         when(authConnector.signInAnonymously()).thenReturn(authResultTask);
 
         // because of the above the presenter will keep signing in forever:
-        signInPresenter.startSignInFlow();
+        signInPresenter.onContinueButtonClicked();
 
         assertTrue(viewModel.isShowLoadingIndicator());
         assertFalse(viewModel.isShowErrorMessage());
@@ -63,7 +63,7 @@ public class SignInPresenterTest {
 
         when(authConnector.isSignedIn()).thenReturn(true);
 
-        signInPresenter.startSignInFlow();
+        signInPresenter.onContinueButtonClicked();
 
         verify(signInView).continueIntoApp();
     }
@@ -84,7 +84,7 @@ public class SignInPresenterTest {
                     return null;
                 });
 
-        signInPresenter.startSignInFlow();
+        signInPresenter.onContinueButtonClicked();
 
         assertFalse(viewModel.isShowLoadingIndicator());
         assertTrue(viewModel.isShowErrorMessage());
